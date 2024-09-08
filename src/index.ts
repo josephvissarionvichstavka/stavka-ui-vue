@@ -13,6 +13,7 @@ import StLink from "../packages/components/link";
 import StImage from "../packages/components/image";
 import StTag from "../packages/components/tag";
 import StCard from "../packages/components/card";
+import StEmpty from "../packages/components/empty";
 const version = "0.1.0";
 const components = [
     StButton,
@@ -28,7 +29,8 @@ const components = [
     StLink,
     StImage,
     StTag,
-    StCard
+    StCard,
+    StEmpty
 ];
 const makeInstall = (components :any[] = []) => {
     const install = (app : App  , options? : {}) => {
