@@ -1,0 +1,18 @@
+@import "mixin/mixin";
+.st-empty {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  & > img {
+    user-select: none;
+    object-fit: fill;
+    flex: 1;
+  }
+  & > svg {
+    flex: 1;
+    vertical-align: top;
+  }
+  @include add(description){
+    margin-left: 6px;
+  }
+}
