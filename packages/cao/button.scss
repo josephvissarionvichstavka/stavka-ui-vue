@@ -1,0 +1,68 @@
+@import "mixin/mixin";
+@import "mixin/button";
+@import "common/function";
+.st-button {
+  display: inline-block; /*一行内显示*/
+  white-space: normal; /*禁止文本换行*/
+  box-sizing: border-box;  /*盒模型*/
+  outline: none; /*没有轮廓*/
+  margin: 0; /*外边距0*/
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; /*禁止用户选择文本*/
+  font-weight: 460; /*字体粗细*/
+  text-align: center;  /*居住展示*/
+  border-style: solid;
+  border-width: 1px;/*边框*/
+  border-radius: 8px; /*圆角*/
+  position: relative;
+  transition: all 0.1s;
+  overflow: hidden;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  &:hover {
+    cursor: pointer;
+    animation: jelly 0.8s;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  @include when(disabled) {
+    &:hover {
+      animation: none 0ms;
+      cursor: not-allowed;
+    }
+    &:active {
+      transform: none;
+    }
+  }
+  @include add(default) {
+    @include button-color($st--color , $st-default-color , $st-default-color)
+  }
+  @include add(info) {
+    @include button-color($st--color , $st-info-color , $st-info-color)
+  }
+  @include add(success) {
+    @include button-color($st--color , $st-success-color , $st-success-color)
+  }
+  @include add(warning) {
+    @include button-color($st--color , $st-warning-color , $st-warning-color)
+  }
+  @include add(danger) {
+    @include button-color($st--color, $st-danger-color , $st-danger-color)
+  }
+  @include add(small) {
+    @include button-size($st-button-padding-small-left,$st-button-padding-small-top,
+            $st-button-font-size-small,$st-button-border-radius-small,
+            $st-button-width-small,$st-button-height-small);
+  }
+  @include add(middle) {
+    @include button-size($st-button-padding-middle-left,$st-button-padding-middle-top,
+            $st-button-font-size-middle,$st-button-border-radius-middle,
+            $st-button-width-middle,$st-button-height-middle);
+  }
+  @include add(big) {
+    @include button-size($st-button-padding-big-left,$st-button-padding-big-top,
+            $st-button-font-size-big,$st-button-border-radius-big,
+            $st-button-width-big,$st-button-height-big);
+  }
+}

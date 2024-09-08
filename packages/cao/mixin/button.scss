@@ -1,0 +1,40 @@
+@import "../common/var";
+@import "mixin";
+@mixin button-plain($backgroundColor) {
+  color: $backgroundColor;
+  background-color: $st--background-color;
+}
+@mixin button-text($backgroundColor) {
+  color: $backgroundColor;
+  background-color: $st--background-color;
+  border: none;
+  box-shadow: none;
+}
+@mixin button-color($color, $backgroundColor , $borderColor) {
+  color: $color;
+  background-color: $backgroundColor;
+  border-color: $borderColor;
+  &.plain {
+    @include button-plain($backgroundColor);
+  }
+  &.text {
+    @include button-text($backgroundColor);
+  }
+}
+@mixin button-size($paddingLeft,$paddingTop,$fontSize,$borderRadius,$width,$height) {
+  padding: $paddingLeft $paddingTop;
+  font-size: $fontSize ;
+  border-radius: $borderRadius;
+  width: $width;
+  height: $height;
+  &.st-button--circle {
+    width: $height;
+    border-radius: 50%;
+  }
+  &.st-button--block {
+    width: 100%;
+  }
+  &.st-button--round {
+    border-radius: 32px;
+  }
+}

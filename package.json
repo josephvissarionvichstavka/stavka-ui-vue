@@ -1,0 +1,46 @@
+{
+  "name": "stavka-ui-vue",
+  "version": "0.1.2",
+  "private": false,
+  "keywords": [
+    "stavka",
+    "ui",
+    "vue",
+    "components",
+    "component"
+  ],
+  "main": "src/index.ts",
+  "type": "module",
+  "files": [
+    "src",
+    "lib",
+    "packages",
+    "package.json"
+  ],
+  "eslintConfig": {
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "bootstact": "npm install",
+    "tsc" : "tsc",
+    "sass" : "sass packages/cao/index.scss lib/cao/index.css"
+  },
+  "dependencies": {
+    "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "typescript": "~4.5.5"
+  }
+}

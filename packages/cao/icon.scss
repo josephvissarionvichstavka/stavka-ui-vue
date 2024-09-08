@@ -1,0 +1,44 @@
+@import "common/function";
+.st-icon {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.st-icon--loading::before {
+  content: "-";
+  animation: rot 2s linear infinite;
+}
+.st-icon--default::before {
+  content: "A";
+}
+.st-icon--close::before {
+  content: "X";
+}
+.st-icon--info::before {
+  content: "i";
+}
+.st-icon--success::before {
+  content: "√";
+}
+.st-icon--warning::before {
+  content: "!";
+}
+.st-icon--left::before {
+  content: "<";
+}
+.st-icon--right::before {
+  content: ">";
+}
+.st-icon--top ::before {
+  content: "^";
+}
+.st-icon--bottom::before {
+  content: "v";
+}

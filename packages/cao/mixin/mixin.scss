@@ -1,0 +1,14 @@
+@mixin when($state) {
+  @at-root {
+    &.#{$state} {
+      @content;
+    }
+  }
+}
+@mixin add($type) {
+  @at-root {
+    #{& + '--' + $type} {
+      @content;
+    }
+  }
+}

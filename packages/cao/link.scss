@@ -1,0 +1,48 @@
+@import "mixin/mixin";
+@import "common/var";
+.st-link {
+  font-size: 14px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  padding: 0;
+  font-weight: 460;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; /*禁止用户选择文本*/
+  @include add(default) {
+    color: $st-default-color;
+  }
+  @include add(success) {
+    color: $st-success-color;
+  }
+  @include add(info) {
+    color: $st-info-color;
+  }
+  @include add(warning) {
+    color: $st-warning-color;
+  }
+  @include add(danger) {
+    color: $st-danger-color;
+  }
+  @include add(underline) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @include when(disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-image: none;
+    transform: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

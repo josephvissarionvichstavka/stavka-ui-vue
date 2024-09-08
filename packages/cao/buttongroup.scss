@@ -1,0 +1,28 @@
+.st-button-group {
+  display: inline-block;
+  vertical-align: middle;
+  & > .st-button {
+    float: left;
+    position: relative;
+    & + .st-button {
+      margin-left: 0;
+    }
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+    &:not(.disabled) {
+      &:hover,&:active {
+        z-index: 1;
+      }
+    }
+  }
+
+}

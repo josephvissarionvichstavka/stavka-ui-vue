@@ -1,0 +1,18 @@
+@import "mixin/mixin";
+.st-image {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  @include add(inner) {
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+  }
+  @include add(circle) {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  @include add(block) {
+    display: block;
+  }
+}

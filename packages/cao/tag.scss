@@ -1,0 +1,81 @@
+@import "common/var";
+@import "mixin/mixin";
+@mixin tag-plain($backgroundColor) {
+  color: $backgroundColor;
+  background-color: $st--background-color;
+}
+@mixin tag-color($color, $backgroundColor , $borderColor) {
+  color: $color;
+  background-color: $backgroundColor;
+  border-color: $borderColor;
+  &.plain {
+    @include tag-plain($backgroundColor);
+  }
+}
+@mixin tag-size($paddingLeft,$paddingTop,$fontSize,$borderRadius,$width,$height) {
+  padding: $paddingLeft $paddingTop;
+  font-size: $fontSize ;
+  border-radius: $borderRadius;
+  width: $width;
+  height: $height;
+}
+.st-tag {
+  display: inline-block;
+  line-height: 1;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  @include add(mark) {
+    border-radius: 0 24px;
+  }
+  @include add(round) {
+    border-radius: 24px;
+  }
+  @include add(close) {
+    border-radius: 50%;
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+  @include add(default) {
+    @include tag-color($st--color , $st-default-color , $st-default-color)
+  }
+  @include add(info) {
+    @include tag-color($st--color , $st-info-color , $st-info-color)
+  }
+  @include add(success) {
+    @include tag-color($st--color , $st-success-color , $st-success-color)
+  }
+  @include add(warning) {
+    @include tag-color($st--color , $st-warning-color , $st-warning-color)
+  }
+  @include add(danger) {
+    @include tag-color($st--color, $st-danger-color , $st-danger-color)
+  }
+  @include add(small) {
+    @include tag-size($st-tag-padding-small-left,$st-tag-padding-small-top,
+            $st-tag-font-size-small,$st-tag-border-radius-small,
+            $st-tag-width-small,$st-tag-height-small);
+  }
+  @include add(middle) {
+    @include tag-size($st-tag-padding-middle-left,$st-tag-padding-middle-top,
+            $st-tag-font-size-middle,$st-tag-border-radius-middle,
+            $st-tag-width-middle,$st-tag-height-middle);
+  }
+  @include add(big) {
+    @include tag-size($st-tag-padding-big-left,$st-tag-padding-big-top,
+            $st-tag-font-size-big,$st-tag-border-radius-big,
+            $st-tag-width-big,$st-tag-height-big);
+  }
+}
