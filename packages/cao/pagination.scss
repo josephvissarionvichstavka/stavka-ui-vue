@@ -1,0 +1,44 @@
+@import "mixin/mixin";
+@import "common/var";
+.st-pagination {
+  display: flex;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
+  & ul {
+    list-style-type: none;
+    overflow: hidden;
+
+    & li {
+      float: left;
+      padding-left: 10px;
+      padding-right: 10px;
+      transition: font-size 0.3s ease;
+      &:hover {
+        color: $st-default-color;
+        font-size: 21px;
+      }
+      &:active {
+        color: $st-default-color;
+        font-size: 14px;
+      }
+    }
+    & > li:first-child {
+      padding-left: 0;
+    }
+    & > li:last-child {
+      padding-right: 0;
+    }
+  }
+  @include add(item) {
+    position: relative;
+    flex: 1;
+    user-select: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  @include add(disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

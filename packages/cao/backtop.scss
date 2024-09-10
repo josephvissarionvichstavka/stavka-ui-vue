@@ -1,0 +1,25 @@
+.st-back-top {
+  position: fixed;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  word-break: break-all;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px 12px 20px 9px;
+  z-index: 100;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  background-color: blue;
+  width: 60px;
+  height: 60px;
+  bottom: 60px;
+  right: 40px;
+  border-radius: 50%;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}

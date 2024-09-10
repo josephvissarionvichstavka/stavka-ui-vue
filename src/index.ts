@@ -14,6 +14,9 @@ import StImage from "../packages/components/image";
 import StTag from "../packages/components/tag";
 import StCard from "../packages/components/card";
 import StEmpty from "../packages/components/empty";
+import StPageHeader from "../packages/components/pageheader";
+import StBackTop from "../packages/components/backtop";
+import StPagination from "../packages/components/pagination";
 const version = "0.1.0";
 const components = [
     StButton,
@@ -30,7 +33,10 @@ const components = [
     StImage,
     StTag,
     StCard,
-    StEmpty
+    StEmpty,
+    StPageHeader,
+    StBackTop,
+    StPagination
 ];
 const makeInstall = (components :any[] = []) => {
     const install = (app : App  , options? : {}) => {
@@ -42,6 +48,10 @@ const makeInstall = (components :any[] = []) => {
         install
     }
 }
+const width = document.documentElement.scrollWidth;
+const height = document.documentElement.scrollHeight;
+document.documentElement.style.setProperty('--st-windows-width' , width + 'px');
+document.documentElement.style.setProperty('--st-windows-height' , height + 'px');
 const install = makeInstall([...components]);
 export default {
     install : install,

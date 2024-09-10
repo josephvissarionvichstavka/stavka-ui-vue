@@ -1,0 +1,21 @@
+:root {
+  --st-windows-width : 0;
+  --st-windows-height : 0;
+  --st-windows-linght : 'white';
+  --st-windows-drak : 'black';
+  --st-windows-color : var(--st-wndows-linght);
+
+  --st-windows-background : var(--st-windows-linght);
+}
+$background : light;
+#app {
+  width: var(--st-windows-width);
+  height: var(--st-windows-height);
+  @if $background == 'drak' {
+    --st-windows-background: var(--st-windows-drak);
+    color: var(--st-windows-color);
+  }@else {
+    --st-windows-background: var(--st-windows-linght);
+  }
+
+}

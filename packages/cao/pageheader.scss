@@ -1,0 +1,40 @@
+@import "mixin/mixin";
+.st-page-header{
+  display: flex;
+  line-height: 1.5;
+  @include add(left) {
+    display: flex;
+    cursor: pointer;
+    margin-right: 40px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 16px;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--st-windows-background);
+    }
+  }
+  @include add(title) {
+    margin-left: 12px;
+  }
+  @include add(right) {
+
+  }
+}
+.st-page-header--left {
+
+}
+.st-page-header--title {
+
+}
+.st-page-header--left::after {
+
+}
+.st-page-header--right {
+  font-size: 18px;
+  color: #303133;
+}

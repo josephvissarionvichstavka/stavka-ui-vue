@@ -30,7 +30,8 @@ const StEmpty = defineComponent({
     render () {
         return h('div' , {class : 'st-empty' ,style : this.styles } , [
             this.$props.image ? h('img' , {src : this.$props.image}) : defaultEmpty,
-            h('div' , {class : 'st-empty--description'} , this.$props.description || 'empty')
+            h('div' , {class : 'st-empty--description'} , this.$props.description || 'empty'),
+            h('div' ,{} , this.$slot)
         ])
     }
 })
