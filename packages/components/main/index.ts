@@ -1,4 +1,4 @@
-import Main from './src/index'
+import Main from './src'
 import {withInstall} from "../../utils/install";
 
 const StMain = withInstall(Main);

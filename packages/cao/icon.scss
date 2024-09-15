@@ -1,5 +1,6 @@
 @import "common/function";
-.st-icon {
+@import "mixin/mixin";
+@include bem(icon){
   speak: none;
   font-style: normal;
   font-weight: normal;

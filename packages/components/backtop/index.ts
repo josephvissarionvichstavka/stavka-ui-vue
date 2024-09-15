@@ -1,4 +1,4 @@
-import BackTop from './src/index'
+import BackTop from './src'
 import {withInstall} from "../../utils/install";
 const StBackTop = withInstall(BackTop);
 

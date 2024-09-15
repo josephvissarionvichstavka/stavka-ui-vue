@@ -1,7 +1,8 @@
 import {defineComponent , h} from 'vue'
+import {createNamespace} from "../../../utils/namespace";
 
 const StIcon = defineComponent({
-    name : 'st-icon',
+    name : createNamespace('icon'),
     props : {
         name : {
             type : String,

@@ -1,7 +1,7 @@
 @import "mixin/mixin";
 @import "mixin/button";
 @import "common/function";
-.st-button {
+@include bem(button){
   display: inline-block; /*一行内显示*/
   white-space: normal; /*禁止文本换行*/
   box-sizing: border-box;  /*盒模型*/

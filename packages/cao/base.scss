@@ -3,11 +3,11 @@
   --st-windows-height : 0;
   --st-windows-linght : 'white';
   --st-windows-drak : 'black';
-  --st-windows-color : var(--st-wndows-linght);
-
+  --st-windows-color : var(--st-windows-linght);
+  --st-row-gutter : 0%;
   --st-windows-background : var(--st-windows-linght);
 }
-$background : light;
+$background : 'light';
 #app {
   width: var(--st-windows-width);
   height: var(--st-windows-height);

@@ -1,8 +1,7 @@
 @import "mixin/mixin";
 @import "common/var";
-.st-pagination {
+@include bem(pagination) {
   display: flex;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
   & ul {
     list-style-type: none;
     overflow: hidden;
@@ -40,5 +39,8 @@
   @include add(disabled) {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+  @include add(border) {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
   }
 }

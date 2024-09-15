@@ -1,5 +1,5 @@
 @import "mixin/mixin";
-.st-container {
+@include bem(container) {
   display: flex;
   flex-direction: row;
   flex: 1;

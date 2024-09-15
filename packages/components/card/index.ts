@@ -1,4 +1,4 @@
-import Card from './src/index'
+import Card from './src'
 import {withInstall} from "../../utils/install";
 
 const StCard = withInstall(Card);

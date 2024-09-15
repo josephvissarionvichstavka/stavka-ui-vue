@@ -1,5 +1,5 @@
 @import "mixin/mixin";
-.st-page-header{
+@include bem(page-header){
   display: flex;
   line-height: 1.5;
   @include add(left) {
@@ -21,20 +21,4 @@
   @include add(title) {
     margin-left: 12px;
   }
-  @include add(right) {
-
-  }
-}
-.st-page-header--left {
-
-}
-.st-page-header--title {
-
-}
-.st-page-header--left::after {
-
-}
-.st-page-header--right {
-  font-size: 18px;
-  color: #303133;
 }

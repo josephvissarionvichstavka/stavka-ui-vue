@@ -1,4 +1,4 @@
-import Icon from './src/index'
+import Icon from './src'
 import {withInstall} from "../../utils/install";
 
 const StIcon = withInstall(Icon);

@@ -1,39 +1,40 @@
-:root {
-  --st-row-gutter : 0%
-}
-.st-row {
+@import "mixin/mixin";
+@include bem(row){
     display: inline-block;
     height: 100%;
     unicode-bidi: isolate;
-& > div:nth-child(n) {
+  & > div:nth-child(n) {
       margin-right: var(--st-row-gutter);
       margin-left: var(--st-row-gutter);
   }
-& > div:first-child {
+  & > div:first-child {
       margin-right: var(--st-row-gutter);
       margin-left: 0;
   }
-&> div:last-child {
+  &> div:last-child {
      margin-left: var(--st-row-gutter);
      margin-right: 0;
  }
-}
-.st--row--flex {
+  @include add(flex) {
     display: flex;
     flex-wrap: wrap;
+  }
+  @include add(justify) {
+    @include add(center) {
+      justify-content: center;
+    }
+    @include add(end) {
+      justify-content: flex-end;
+    }
+    @include add(start) {
+      justify-content: flex-start;
+    }
+    @include add(between) {
+      justify-content: space-between;
+    }
+    @include add(around) {
+      justify-content: space-around;
+    }
+  }
 }
-.st--row--justify--center {
-    justify-content: center;
-}
-.st--row--justify--end {
-    justify-content: flex-end;
-}
-.st--row--justify--start {
-    justify-content: flex-start;
-}
-.st--row--justify--between {
-    justify-content: space-between;
-}
-.st--row--justify--around {
-    justify-content: space-around;
-}
+

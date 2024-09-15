@@ -1,4 +1,4 @@
-import Footer from './src/index'
+import Footer from './src'
 import {withInstall} from "../../utils/install";
 
 const StFooter = withInstall(Footer);

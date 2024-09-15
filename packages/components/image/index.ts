@@ -1,4 +1,4 @@
-import Image from './src/index'
+import Image from './src'
 import {withInstall} from "../../utils/install";
 
 const StImage = withInstall(Image);

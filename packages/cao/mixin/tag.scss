@@ -1,0 +1,20 @@
+@import "../common/var";
+@mixin tag-plain($backgroundColor) {
+  color: $backgroundColor;
+  background-color: $st--background-color;
+}
+@mixin tag-color($color, $backgroundColor , $borderColor) {
+  color: $color;
+  background-color: $backgroundColor;
+  border-color: $borderColor;
+  &.plain {
+    @include tag-plain($backgroundColor);
+  }
+}
+@mixin tag-size($paddingLeft,$paddingTop,$fontSize,$borderRadius,$width,$height) {
+  padding: $paddingLeft $paddingTop;
+  font-size: $fontSize ;
+  border-radius: $borderRadius;
+  width: $width;
+  height: $height;
+}

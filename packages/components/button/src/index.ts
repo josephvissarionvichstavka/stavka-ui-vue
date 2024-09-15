@@ -1,65 +1,40 @@
 import {defineComponent , h} from 'vue';
+import {createNamespace} from "../../../utils/namespace";
 const StButton = defineComponent({
-    name : 'st-button',
+    name : createNamespace('button'),
     props : {
         type : {
             type : String,
             default : 'default',
-
         },
         size : {
             type : String,
             default : 'big',
-
         },
-        plain : {
-            type : Boolean,
-            default : false
-        },
-        text : {
-            type : Boolean,
-            default : false
-        },
-        circle : {
-            type : Boolean,
-            default : false
-        },
-        block : {
-            type : Boolean,
-            default : false
-        },
-        round : {
-            type : Boolean,
-            default : false
-        },
-        disabled : {
-            type : Boolean,
-            default : false
-        },
-        autoFocus : {
-            type : Boolean,
-            default : false
-        },
-        loading : {
-            type : Boolean,
-            default : false
-        },
+        plain : Boolean,
+        text : Boolean,
+        circle : Boolean,
+        block : Boolean,
+        round : Boolean,
+        disabled : Boolean,
+        autoFocus : Boolean,
+        loading : Boolean,
         color : {
-            type : String
+            type : String,
+            required : false
         },
         icon : {
             type : String,
             required : false
         }
     },
-    methods : {
-        handleClick (event : Event) {
-            if(! (this.$props.disabled || this.$props.loading) ) {
-                this.$emit('click',event)
+    emits : ['click'],
+    setup(props , {emit}) {
+        const  handleClick = (event : Event) => {
+            if(! (props.disabled || props.loading) ) {
+                emit('click',event)
             }
         }
-    },
-    setup(props : any) {
         const classNames =
             [ 'st-button' ,
                 'st-button--' + props.type ,
@@ -71,22 +46,23 @@ const StButton = defineComponent({
                 props.round ? 'st-button--round' : '',
                 (props.disabled || props.loading) ? 'disabled' : ''
             ]
-        const styles = {} as { color?: string; backgroundColor?: string; borderColor?: string };
-        if (props.color) {
-            styles.color = (props.plain || props.text) ? props.color : 'white'
-            styles.backgroundColor = (props.plain || props.text) ? 'transparent' : props.color
-            styles.borderColor = (!props.text) ? props.color : 'transparent'
-        }
+        const styles = props.color && {
+            color : (props.plain || props.text) ? props.color : 'white',
+            backgroundColor : (props.plain || props.text) ? 'transparent' : props.color,
+            borderColor : (!props.text) ? props.color : 'transparent'
+        } ;
         return {
             classNames,
-            styles
+            styles,
+            handleClick
         }
     },
     render() {
-        return h('div' , {class : this.classNames , style : this.styles , autofocus : this.$props.autoFocus , onClick : this.handleClick},[
+        return h('div' , {class : this.classNames , style : this.styles ,
+            autofocus : this.$props.autoFocus , onClick : this.handleClick},[
             this.$props.loading ? h('i', { class: 'st-icon--loading' }) : null,
             !this.$props.loading && this.$props.icon ? h('i', { class: this.$props.icon } ) : null,
-            h('span', {}, h('slot', {} , this.$slots ))
+            h('span', {}, h('slot', {name : 'default'} , this.$slots ))
         ] )
     }
 })

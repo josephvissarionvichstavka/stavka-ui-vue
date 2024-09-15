@@ -1,4 +1,5 @@
-.st-button-group {
+@import "mixin/mixin";
+@include bem(button-group){
   display: inline-block;
   vertical-align: middle;
   & > .st-button {

@@ -1,6 +1,7 @@
 import {defineComponent , h} from 'vue';
+import {createNamespace} from "../../../utils/namespace";
 const StButtonGroup = defineComponent({
-    name : 'st-button-group',
+    name : createNamespace('button-group'),
     setup() {
         const classNames = [
             'st-button-group'

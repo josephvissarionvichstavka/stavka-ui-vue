@@ -1,4 +1,4 @@
-import Link from './src/index'
+import Link from './src'
 import {withInstall} from "../../utils/install";
 
 const StLink = withInstall(Link);

@@ -1,6 +1,7 @@
 import {defineComponent , h} from '@vue/runtime-core'
+import {createNamespace} from "../../../utils/namespace";
 const StCol = defineComponent({
-    name: "StavkaCol",
+    name: createNamespace('col'),
     props : {
         span : {
             type : String,

@@ -1,6 +1,7 @@
 import {defineComponent , h} from 'vue';
+import {createNamespace} from "../../../utils/namespace";
 const StAside = defineComponent({
-    name : 'st-aside',
+    name : createNamespace('aside'),
     props : {
         width : {
             type : String,
@@ -20,7 +21,9 @@ const StAside = defineComponent({
         }
     },
     render() {
-        return h('div' , {class : this.classNames , style : this.styles} , this.$slots)
+        return h('div' , {class : this.classNames , style : this.styles} , [
+            h('slot' , {name : 'default'})
+        ])
     }
 })
 

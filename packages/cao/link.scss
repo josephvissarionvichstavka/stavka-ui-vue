@@ -1,6 +1,6 @@
 @import "mixin/mixin";
 @import "common/var";
-.st-link {
+@include bem(link){
   font-size: 14px;
   display: inline-flex;
   flex-direction: row;

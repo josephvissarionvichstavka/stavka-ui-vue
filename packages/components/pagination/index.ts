@@ -1,4 +1,4 @@
-import Pagination from './src/index'
+import Pagination from './src'
 import {withInstall} from "../../utils/install";
 
 const StPagination = withInstall(Pagination);

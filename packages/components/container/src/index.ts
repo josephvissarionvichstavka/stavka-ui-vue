@@ -1,6 +1,7 @@
 import {computed ,defineComponent , h} from 'vue'
+import {createNamespace} from "../../../utils/namespace";
 const StContainer = defineComponent({
-    name: "index",
+    name: createNamespace('container'),
     props : {
         h5 : Boolean
     },

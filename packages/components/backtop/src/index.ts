@@ -1,39 +1,46 @@
-import {defineComponent , h , ref} from 'vue'
+import {defineComponent , h , ref , watchEffect} from 'vue'
+import {createNamespace} from "../../../utils/namespace";
 
 const StBackTop = defineComponent({
-    name : 'st-back-top',
-    methods : {
-        handleClick(event : Event) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        },
-        initDraggable() {
-            const draggable : any= this.$refs.draggable;
-            let offsetX : number, offsetY : number;
-
-            draggable.addEventListener('mousedown', (e : MouseEvent) => {
-                offsetX = e.clientX - draggable.offsetLeft;
-                offsetY = e.clientY - draggable.offsetTop;
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
-            });
-
-            function onMouseMove(e : MouseEvent) {
-                draggable.style.left = e.clientX - offsetX + 'px';
-                draggable.style.top = e.clientY - offsetY + 'px';
-            }
-
-            function onMouseUp() {
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-            }
-        },
+    name : createNamespace('back-top'),
+    setup() {
+        const handleClick = (event : Event) => {
+            window.scrollTo({top: 0, behavior: "smooth"});
+        }
+        const classNames = [
+            'st-back-top',
+            'st-back-top--default'
+        ]
+        return {
+            handleClick,
+            classNames
+        }
     },
     mounted() {
-        this.initDraggable();
+        const draggable : HTMLElement = this.$refs.draggable as HTMLElement;
+        let offsetX : number, offsetY : number;
+
+        draggable.addEventListener('mousedown', (e : MouseEvent) => {
+            offsetX = e.clientX - draggable.offsetLeft;
+            offsetY = e.clientY - draggable.offsetTop;
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+
+        function onMouseMove(e : MouseEvent) {
+            draggable.style.left = e.clientX - offsetX + 'px';
+            draggable.style.top = e.clientY - offsetY + 'px';
+        }
+
+        function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
     },
     render() {
-        return h('div' , {class : 'st-back-top' , onClick : this.handleClick, ref : "draggable"} , [
-            !this.$slots ? h('i' , {class : 'st-icon--top'} ) : h('span' , {} , this.$slots)
+        console.log(this.$slots)
+        return h('div' , {class : this.classNames , onClick : this.handleClick, ref : "draggable"} , [
+            !this.$slots ? h('i' , {class : 'st-icon--top'} ) : h('slot' , {} , this.$slots)
         ])
     }
 })

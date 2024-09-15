@@ -1,5 +1,5 @@
 @import "mixin/mixin";
-.st-image {
+@include bem(image){
   position: relative;
   display: inline-block;
   overflow: hidden;

@@ -1,4 +1,4 @@
-import Button from './src/index'
+import Button from './src'
 import {withInstall} from "../../utils/install";
 const StButton = withInstall(Button);
 

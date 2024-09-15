@@ -1,5 +1,5 @@
 @import "mixin/mixin";
-.st-empty {
+@include bem(empty) {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

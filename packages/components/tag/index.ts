@@ -1,4 +1,4 @@
-import Tag from './src/index'
+import Tag from './src'
 import {withInstall} from "../../utils/install";
 
 const StTag = withInstall(Tag);

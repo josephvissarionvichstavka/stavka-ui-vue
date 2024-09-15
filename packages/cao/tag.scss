@@ -1,25 +1,7 @@
 @import "common/var";
 @import "mixin/mixin";
-@mixin tag-plain($backgroundColor) {
-  color: $backgroundColor;
-  background-color: $st--background-color;
-}
-@mixin tag-color($color, $backgroundColor , $borderColor) {
-  color: $color;
-  background-color: $backgroundColor;
-  border-color: $borderColor;
-  &.plain {
-    @include tag-plain($backgroundColor);
-  }
-}
-@mixin tag-size($paddingLeft,$paddingTop,$fontSize,$borderRadius,$width,$height) {
-  padding: $paddingLeft $paddingTop;
-  font-size: $fontSize ;
-  border-radius: $borderRadius;
-  width: $width;
-  height: $height;
-}
-.st-tag {
+@import "mixin/tag";
+@include bem(tag) {
   display: inline-block;
   line-height: 1;
   padding-bottom: 6px;

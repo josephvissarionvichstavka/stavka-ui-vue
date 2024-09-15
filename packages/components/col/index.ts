@@ -1,4 +1,4 @@
-import Col from './src/index'
+import Col from './src'
 import {withInstall} from "../../utils/install";
 const StCol = withInstall(Col);
 

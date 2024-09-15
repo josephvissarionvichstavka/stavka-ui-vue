@@ -1,7 +1,8 @@
 import {defineComponent , h} from '@vue/runtime-core'
+import {createNamespace} from "../../../utils/namespace";
 
 const StRow = defineComponent({
-    name: "st-row",
+    name: createNamespace('row'),
     props : {
         gutter: {
             type: Number,

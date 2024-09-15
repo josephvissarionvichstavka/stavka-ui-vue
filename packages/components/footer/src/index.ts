@@ -1,6 +1,7 @@
 import {defineComponent , h} from 'vue'
+import {createNamespace} from "../../../utils/namespace";
 const StFooter = defineComponent({
-    name: "st-footer",
+    name: createNamespace('footer'),
     props : {
         height : {
             type : String,

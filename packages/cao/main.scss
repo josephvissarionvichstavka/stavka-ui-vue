@@ -1,4 +1,5 @@
-.st-main {
+@import "mixin/mixin";
+@include bem(main){
   display: block;
   flex: 1;
   flex-basis: auto;

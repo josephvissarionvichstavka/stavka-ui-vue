@@ -1,4 +1,4 @@
-import Aside from './src/index'
+import Aside from './src'
 import {withInstall} from "../../utils/install";
 const StAside = withInstall(Aside);
 

@@ -1,7 +1,8 @@
 import {defineComponent , h} from 'vue'
+import {createNamespace} from "../../../utils/namespace";
 
 const StLink = defineComponent({
-    name : 'st-link',
+    name : createNamespace('link'),
     props : {
         type : {
             type: String,
