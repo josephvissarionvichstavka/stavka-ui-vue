@@ -16,20 +16,10 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none; /*禁止用户选择文本*/
-  @include add(default) {
-    color: $st-default-color;
-  }
-  @include add(success) {
-    color: $st-success-color;
-  }
-  @include add(info) {
-    color: $st-info-color;
-  }
-  @include add(warning) {
-    color: $st-warning-color;
-  }
-  @include add(danger) {
-    color: $st-danger-color;
+  @each $type , $color in $type-list {
+    @include add(#{$type}) {
+      color: $color;
+    }
   }
   @include add(underline) {
     &:hover {

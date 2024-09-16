@@ -5,5 +5,6 @@ const withInstall = (main : any) => {
             app.component(component.name, component);
         }
     }
+    return main
 }
 export {withInstall}

@@ -1,4 +1,5 @@
 @import "mixin/mixin";
+@import "common/var";
 @include bem(card) {
   position: relative;
   width: 144px;
@@ -55,8 +56,8 @@
      align-items: center;
      border-radius: 20px;
      transition: 700ms;
-     background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);;
-     color: white;
+     background: $st-default-color;
+     color: $st--color;
      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
      &::before {
        content: '';

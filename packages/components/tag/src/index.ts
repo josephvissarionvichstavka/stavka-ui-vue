@@ -41,8 +41,8 @@ const StTag = defineComponent({
             props.type  ? 'st-tag--' + props.type : '',
             props.size ? 'st-tag--' + props.size : '',
             props.plain ? 'plain' : '',
-            props.round && !props.mark ? 'st-tag--round' : '',
-            props.mark && !props.round ? 'st-tag--mark' : ''
+            props.round && !props.mark ? 'round' : '',
+            props.mark && !props.round ? 'mark' : ''
         ];
         const styles = {
             color : props.plain ? (props.color ? props.color : '') : '',

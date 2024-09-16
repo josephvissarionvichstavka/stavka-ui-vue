@@ -16,33 +16,12 @@ const StCard = defineComponent({
         }
     },
     render() {
+        const trackers = []
+        for (let i = 0; i < 25; i++)
+            trackers.push(h('div',{class : `tr-${i} tracker`}))
         return h('div' , {class : 'st-card'} , [
             h('div' , {class : 'st-card--canvas'} , [
-                h('div' , {class : 'tr-1 tracker'}),
-                h('div' , {class : 'tr-2 tracker'}),
-                h('div' , {class : 'tr-3 tracker'}),
-                h('div' , {class : 'tr-4 tracker'}),
-                h('div' , {class : 'tr-5 tracker'}),
-                h('div' , {class : 'tr-6 tracker'}),
-                h('div' , {class : 'tr-7 tracker'}),
-                h('div' , {class : 'tr-8 tracker'}),
-                h('div' , {class : 'tr-9 tracker'}),
-                h('div' , {class : 'tr-10 tracker'}),
-                h('div' , {class : 'tr-11 tracker'}),
-                h('div' , {class : 'tr-12 tracker'}),
-                h('div' , {class : 'tr-13 tracker'}),
-                h('div' , {class : 'tr-14 tracker'}),
-                h('div' , {class : 'tr-15 tracker'}),
-                h('div' , {class : 'tr-16 tracker'}),
-                h('div' , {class : 'tr-17 tracker'}),
-                h('div' , {class : 'tr-18 tracker'}),
-                h('div' , {class : 'tr-19 tracker'}),
-                h('div' , {class : 'tr-20 tracker'}),
-                h('div' , {class : 'tr-21 tracker'}),
-                h('div' , {class : 'tr-22 tracker'}),
-                h('div' , {class : 'tr-23 tracker'}),
-                h('div' , {class : 'tr-24 tracker'}),
-                h('div' , {class : 'tr-25 tracker'}),
+                ...trackers,
                 h('div', {class : 'st-card--inner' , style : this.styles} , [
                     this.$props.description && h('div' , {class : 'st-card--description'} , this.$props.description),
                     h('div',{class : 'st-card--card' + (this.$props.description ? ' st-card--card--opacity' : '')},[

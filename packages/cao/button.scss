@@ -1,6 +1,7 @@
 @import "mixin/mixin";
 @import "mixin/button";
 @import "common/function";
+@import "common/var";
 @include bem(button){
   display: inline-block; /*一行内显示*/
   white-space: normal; /*禁止文本换行*/
@@ -21,12 +22,13 @@
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   &:hover {
     cursor: pointer;
-    animation: jelly 0.8s;
+    animation: jelly 0.45s;
   }
   &:active {
     transform: scale(0.9);
   }
   @include when(disabled) {
+    opacity: 0.6;
     &:hover {
       animation: none 0ms;
       cursor: not-allowed;
@@ -35,34 +37,14 @@
       transform: none;
     }
   }
-  @include add(default) {
-    @include button-color($st--color , $st-default-color , $st-default-color)
+  @each $type , $color  in $type-list {
+    @include add(#{$type}) {
+      @include button-color($st--color , $color , $color);
+    }
   }
-  @include add(info) {
-    @include button-color($st--color , $st-info-color , $st-info-color)
-  }
-  @include add(success) {
-    @include button-color($st--color , $st-success-color , $st-success-color)
-  }
-  @include add(warning) {
-    @include button-color($st--color , $st-warning-color , $st-warning-color)
-  }
-  @include add(danger) {
-    @include button-color($st--color, $st-danger-color , $st-danger-color)
-  }
-  @include add(small) {
-    @include button-size($st-button-padding-small-left,$st-button-padding-small-top,
-            $st-button-font-size-small,$st-button-border-radius-small,
-            $st-button-width-small,$st-button-height-small);
-  }
-  @include add(middle) {
-    @include button-size($st-button-padding-middle-left,$st-button-padding-middle-top,
-            $st-button-font-size-middle,$st-button-border-radius-middle,
-            $st-button-width-middle,$st-button-height-middle);
-  }
-  @include add(big) {
-    @include button-size($st-button-padding-big-left,$st-button-padding-big-top,
-            $st-button-font-size-big,$st-button-border-radius-big,
-            $st-button-width-big,$st-button-height-big);
+  @each $type , $size in $size-list {
+    @include add(#{$type}) {
+      @include button-size(nth($size , 1) , nth($size , 2) , nth($size , 3) , nth($size , 4) , nth($size , 5) , nth($size , 6));
+    }
   }
 }

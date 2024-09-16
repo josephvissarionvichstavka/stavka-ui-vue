@@ -9,7 +9,7 @@ const StButton = defineComponent({
         },
         size : {
             type : String,
-            default : 'big',
+            default : 'defaults',
         },
         plain : Boolean,
         text : Boolean,
@@ -28,7 +28,6 @@ const StButton = defineComponent({
             required : false
         }
     },
-    emits : ['click'],
     setup(props , {emit}) {
         const  handleClick = (event : Event) => {
             if(! (props.disabled || props.loading) ) {

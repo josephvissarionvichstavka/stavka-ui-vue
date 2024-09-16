@@ -13,8 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .st-icon--loading::before {
-  content: "-";
-  animation: rot 2s linear infinite;
+  content: "L";
+  font-weight: 900;
 }
 .st-icon--default::before {
   content: "A";
