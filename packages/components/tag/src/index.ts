@@ -20,13 +20,6 @@ const StTag = defineComponent({
         color : String
     },
     methods : {
-        gradientBackground(){
-            return {
-                color : this.plain ? (this.color ? this.color : '') : '',
-                background : this.plain ? '' : (this.color ? this.color : ''),
-                borderColor :  this.color ? this.color : ''
-            }
-        },
         handleClose (event : Event) {
             event.stopPropagation();
             this.$emit('close',event)

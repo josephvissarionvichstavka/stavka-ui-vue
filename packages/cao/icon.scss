@@ -31,6 +31,12 @@
 .st-icon--warning::before {
   content: "!";
 }
+.st-icon--primary::before {
+  content: "+";
+}
+.st-icon--danger::before {
+  content: "*";
+}
 .st-icon--left::before {
   content: "<";
 }

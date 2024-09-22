@@ -10,14 +10,6 @@ $type-list : (
 $st--color : white;
 $st--background-color : transparent;
 $st-border-radius-base : 4px;
-
-$st-default-color : black;
-$st-primary-color : blue;
-$st-info-color : gray;
-$st-success-color : green;
-$st-warning-color : yellow;
-$st-danger-color : red;
-
 $size-list : (
         //type : (padding-left  , padding-top ,font-size ,border-radius ,width , height ),
         defaults : ( 14px ,  0 , 28px,$st-border-radius-base,108px ,  72px),

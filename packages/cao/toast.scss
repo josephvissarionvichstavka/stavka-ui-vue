@@ -1,0 +1,28 @@
+@import "common/var";
+@import "mixin/mixin";
+
+@include bem(message) {
+  min-width: 64px;
+  overflow: hidden;
+  border-radius: $st-border-radius-base;
+  transform: translate3d(-50% , -50% , 0);
+  background-color: map-get($type-list , default);
+  left: 50%;
+  top: 40%;
+  position: fixed;
+  padding: 15px;
+  font-size: 14px;
+  color: white;
+  box-sizing: content-box;
+  user-select: none;
+  white-space: pre-wrap;
+  text-align: center;
+  @include add(icon) {
+    font-size: 36px;
+  }
+  @each $type , $color  in $type-list {
+    @include add(#{$type}) {
+      background-color: $color;
+    }
+  }
+}

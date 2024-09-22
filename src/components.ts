@@ -16,6 +16,7 @@ import StEmpty from "../packages/components/empty";
 import StPageHeader from "../packages/components/pageheader";
 import StBackTop from "../packages/components/backtop";
 import StPagination from "../packages/components/pagination";
+import StToast from "../packages/components/toast";
 const components = [
     StButton,
     StButtonGroup,
@@ -34,6 +35,7 @@ const components = [
     StEmpty,
     StPageHeader,
     StBackTop,
-    StPagination
+    StPagination,
+    StToast
 ];
 export default components;

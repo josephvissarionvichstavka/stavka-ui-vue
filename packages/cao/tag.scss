@@ -25,10 +25,6 @@
   }
   @include add(close) {
     border-radius: 50%;
-    &:hover {
-      background-color: red;
-      color: white;
-    }
   }
   @each $type , $color in $type-list {
     @include add(#{$type}) {

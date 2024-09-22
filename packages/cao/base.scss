@@ -1,11 +1,11 @@
 :root {
-  --st-windows-width : 0;
-  --st-windows-height : 0;
   --st-windows-linght : 'white';
   --st-windows-drak : 'black';
   --st-windows-color : var(--st-windows-linght);
   --st-row-gutter : 0%;
   --st-windows-background : var(--st-windows-linght);
+  --st-point-events : auto;
+  pointer-events: var(--st-point-events);
 }
 $background : 'light';
 #app {

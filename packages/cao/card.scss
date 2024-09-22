@@ -56,7 +56,7 @@
      align-items: center;
      border-radius: 20px;
      transition: 700ms;
-     background: $st-default-color;
+     background: map-get($type-list , primary);
      color: $st--color;
      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
      &::before {
