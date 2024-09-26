@@ -16,7 +16,11 @@ import StEmpty from "../packages/components/empty";
 import StPageHeader from "../packages/components/pageheader";
 import StBackTop from "../packages/components/backtop";
 import StPagination from "../packages/components/pagination";
-import StToast from "../packages/components/toast";
+import StTabItem from "../packages/components/tabs/src/item";
+import StTabs from "../packages/components/tabs";
+import StSwitch from "../packages/components/switch";
+import StBadge from "../packages/components/badge";
+import StOverplay from "../packages/components/overlay/src";
 const components = [
     StButton,
     StButtonGroup,
@@ -36,6 +40,10 @@ const components = [
     StPageHeader,
     StBackTop,
     StPagination,
-    StToast
+    StTabItem,
+    StTabs,
+    StSwitch,
+    StBadge,
+    StOverplay
 ];
 export default components;

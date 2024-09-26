@@ -1,16 +1,27 @@
-import {computed ,defineComponent , h} from 'vue'
+import {computed ,defineComponent , h , useSlots} from 'vue'
 import {createNamespace} from "../../../utils/namespace";
 const StContainer = defineComponent({
     name: createNamespace('container'),
     props : {
-        h5 : Boolean
+        description : {
+            type : String,
+            default : ''
+        }
     },
     setup(props : any) {
+        const slots = useSlots()
         const isH5 = computed(() => {
-            if (props.h5) {
+            if (props.direction === 'vertical') {
                 return true;
-            }else {
+            } else if (props.direction === 'horizontal') {
                 return false;
+            } else {
+                return slots && slots.default ?
+                    slots.default().some(node => {
+                            // @ts-ignore
+                        let name = node.type.name;
+                            return name === 'st-header' || name === 'st-footer'
+                        }) : false;
             }
         })
         const classNames = [

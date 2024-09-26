@@ -1,0 +1,70 @@
+@import "mixin/mixin";
+@import "common/var";
+$background-color : map-get($type-list,primary);
+@include bem(switch) {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  height: 20px;
+  vertical-align: middle;
+  @include add(label) {
+    transition: .2s;
+    height: 20px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    vertical-align: middle;
+    color: #303133;
+    @include add(left) {
+      margin-right: 10px;
+    }
+    @include add(right) {
+      margin-left: 10px;
+    }
+    @include when(activeLabel) {
+      color: $background-color;
+    }
+  }
+  @include when(disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  @include add(switch) {
+    position: relative;
+    cursor: pointer;
+    background-color: map-get($type-list,default);
+    overflow: hidden;
+    @include when(border) {
+      border: 0.1px solid black;
+    }
+    @include when(activeSwitch) {
+      background-color: $background-color;
+    }
+    @include add(center) {
+      background-color: $st--color;
+      width: 66%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease;
+      @include when(activeBall) {
+        transform: translateX(50%);
+      }
+      @include when(border) {
+        border: 0.1px solid black;
+      }
+    }
+    @each $type , $size in $size-list {
+      @include add(#{$type}) {
+        width: nth($size , 5);
+        height: nth($size , 6);
+        border-radius: nth($size , 6);
+      }
+    }
+  }
+}

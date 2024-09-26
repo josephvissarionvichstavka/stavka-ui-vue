@@ -13,8 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .st-icon--loading::before {
-  content: "L";
-  font-weight: 900;
+  content: "+";
+  animation: rotating 2s linear infinite;
+  position: absolute;
 }
 .st-icon--default::before {
   content: "A";
@@ -31,9 +32,10 @@
 .st-icon--warning::before {
   content: "!";
 }
-.st-icon--primary::before {
+.st-icon--primary::before , .st-icon--add::before {
   content: "+";
 }
+
 .st-icon--danger::before {
   content: "*";
 }
