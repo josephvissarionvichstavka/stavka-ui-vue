@@ -1,8 +1,7 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 
 const StBadge = defineComponent({
-    name : createNamespace('badge'),
+    name : 'st-badge',
     props : {
       value : [String, Number],
       max : {
@@ -17,7 +16,7 @@ const StBadge = defineComponent({
         hidden : Boolean
     },
     computed : {
-      content () : any{
+      content () : any {
           if (!this.$props.isDot && (!this.value || this.value === '')) return 0;
           if (typeof this.$props.value === 'number'){
               const {value, max} = this.$props;

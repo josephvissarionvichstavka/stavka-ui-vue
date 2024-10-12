@@ -1,5 +1,4 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 const defaultEmpty = h('svg', {width : 100 , height : 100 } , [
     h('polygon' , {points : '20,60 40,40 40,80 20,100', fill : '#6e6c6f'}),
     h('rect', {x : 40 , y :40 , width : 40 , height : 40 ,fill : '#807e81'}),
@@ -9,7 +8,7 @@ const defaultEmpty = h('svg', {width : 100 , height : 100 } , [
     h('polygon' , {points : '20,60 60,60 50,75 10,75' , fill : '#c7c4c9'}),
 ])
 const StEmpty = defineComponent({
-    name : createNamespace('empty'),
+    name : 'st-empty',
     props : {
         image : {
             type : String,

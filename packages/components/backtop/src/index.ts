@@ -1,13 +1,12 @@
-import {defineComponent , h , ref , watchEffect} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
+import {defineComponent , h } from 'vue'
 
 const StBackTop = defineComponent({
-    name : createNamespace('back-top'),
+    name : 'st-back-top',
     props : {
         image : String
     },
     setup(props) {
-        const handleClick = (event : Event) => {
+        const handleClick = () => {
             window.scrollTo({top: 0, behavior: "smooth"});
         }
         const classNames = [
@@ -41,10 +40,9 @@ const StBackTop = defineComponent({
         }
     },
     render() {
-        console.log(this.$slots)
         return h('div' , {class : this.classNames , onClick : this.handleClick, ref : "draggable",} , [
             this.$props.image ? h('img' , {src : this.$props.image , class : 'st-back-top--image'}) :
-            !this.$slots ? h('i' , {class : 'st-icon--top'} ) : h('slot' , {} , this.$slots)
+                !this.$slots ? h('i' , {class : 'st-icon--top'} ) : h('slot' , {} , this.$slots)
         ])
     }
 })

@@ -1,7 +1,6 @@
 import {defineComponent , h} from 'vue';
-import {createNamespace} from "../../../utils/namespace";
 const StButton = defineComponent({
-    name : createNamespace('button'),
+    name : 'st-button',
     props : {
         type : {
             type : String,
@@ -28,6 +27,7 @@ const StButton = defineComponent({
             required : false
         }
     },
+    emits : ['click'],
     setup(props , {emit}) {
         const  handleClick = (event : Event) => {
             if(! (props.disabled || props.loading) ) {

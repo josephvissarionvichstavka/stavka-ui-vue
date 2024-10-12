@@ -1,12 +1,11 @@
 import {defineComponent , h} from '@vue/runtime-core'
-import {createNamespace} from "../../../utils/namespace";
 
 const StRow = defineComponent({
-    name: createNamespace('row'),
+    name: 'st-row',
     props : {
         gutter: {
             type: Number,
-            default: '0'
+            default: 0
         },
         type: String,
         justify: {
@@ -14,7 +13,7 @@ const StRow = defineComponent({
             default: 'start'
         }
     },
-    setup(props : any) {
+    setup(props) {
         const classNames = [
             'st-row' ,
             props.type ? 'st-row--' + props.type : '',
@@ -26,10 +25,8 @@ const StRow = defineComponent({
         }
     },
     render () {
-        const gutter = this.$props.gutter ? this.$props.gutter : 0
-
-        document.documentElement.style.
-        setProperty('--st-row-gutter', (gutter / 24 * 100 / 2).toFixed(1) + '%');
+        const gutter = this.$props.gutter
+        document.documentElement.style.setProperty('--st-row-gutter', (gutter / 24 * 100 / 2).toFixed(1) + '%');
         return h('div' , {class : this.classNames} , this.$slots)
     }
 })

@@ -1,7 +1,6 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 const StCard = defineComponent({
-    name: createNamespace('card'),
+    name: 'st-card',
     props : {
         title : String,
         description : String,

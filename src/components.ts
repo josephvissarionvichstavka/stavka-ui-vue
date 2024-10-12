@@ -20,7 +20,8 @@ import StTabItem from "../packages/components/tabs/src/item";
 import StTabs from "../packages/components/tabs";
 import StSwitch from "../packages/components/switch";
 import StBadge from "../packages/components/badge";
-import StOverplay from "../packages/components/overlay/src";
+import StOverplay from "../packages/components/overplay/src";
+import StPopup from "../packages/components/popup";
 const components = [
     StButton,
     StButtonGroup,
@@ -44,6 +45,7 @@ const components = [
     StTabs,
     StSwitch,
     StBadge,
-    StOverplay
+    StOverplay,
+    StPopup
 ];
 export default components;

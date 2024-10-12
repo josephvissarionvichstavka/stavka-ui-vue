@@ -1,7 +1,6 @@
 import {defineComponent , h} from 'vue';
-import {createNamespace} from "../../../utils/namespace";
 const StButtonGroup = defineComponent({
-    name : createNamespace('button-group'),
+    name : 'st-button-group',
     setup() {
         const classNames = [
             'st-button-group'
@@ -11,7 +10,6 @@ const StButtonGroup = defineComponent({
         }
     },
     render() {
-        console.log(this)
         return h('div' , {class : this.classNames},[
             h('slot', {} , this.$slots )
         ] )

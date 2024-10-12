@@ -1,8 +1,7 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 
 const StSwitch = defineComponent({
-    name : createNamespace('switch'),
+    name : 'st-switch',
     props : {
         value : {
             type : Boolean,

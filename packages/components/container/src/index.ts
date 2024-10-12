@@ -1,7 +1,6 @@
-import {computed ,defineComponent , h , useSlots} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
+import {Component, computed, defineComponent, h, useSlots} from 'vue'
 const StContainer = defineComponent({
-    name: createNamespace('container'),
+    name: 'st-container',
     props : {
         description : {
             type : String,
@@ -18,15 +17,14 @@ const StContainer = defineComponent({
             } else {
                 return slots && slots.default ?
                     slots.default().some(node => {
-                            // @ts-ignore
-                        let name = node.type.name;
+                        const name = (node.type as Component).name;
                             return name === 'st-header' || name === 'st-footer'
                         }) : false;
             }
         })
         const classNames = [
             'st-container',
-            isH5 ? 'top-to-bottom' : ''
+            isH5.value ? 'top-to-bottom' : ''
         ]
         return {
             classNames

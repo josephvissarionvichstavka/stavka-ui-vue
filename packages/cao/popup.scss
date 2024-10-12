@@ -1,0 +1,60 @@
+@import "mixin/mixin";
+$st-popup-type : (
+    // position width height left top right bottom border-left
+        left : (50vw , 100vh , -50vw , 0 ,null , null , 0 , 0 , 2vw , 2vw),
+        top : (100vw , 50vh , 0 , -50vh , null , null , 0 , 2vw , 0 , 2vw),
+        right : (50vw , 100vh ,null , null, -50vw , 0 , 2vw , 2vw , 0 , 0),
+        bottom : (100vw , 50vh ,null , null, 0 , -50vh ,2vw , 0 , 2vw , 0)
+);
+@include bem(popup) {
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  @each $type , $position in $st-popup-type {
+    @include add(#{$type}) {
+      width: nth($position , 1);
+      height: nth($position , 2);
+      left: nth($position , 3);
+      top: nth($position , 4);
+      right: nth($position , 5);
+      bottom: nth($position , 6);
+      transition: $type 1s ease;
+    }
+    @include when(active--  + #{$type}) {
+      #{$type} : 0;
+    }
+    @include when(round-- + #{$type}) {
+      border-radius: nth($position, 7) nth($position, 9) nth($position, 10) nth($position, 8);
+    }
+  }
+  @include when(active--center) {
+    display: block;
+  }
+  @include when(round--center) {
+    border-radius: 3vw;
+  }
+  @include add(center) {
+    width: 50vw;
+    height: 50vh;
+    left: 25vw;
+    top: 25vh;
+    display: none;
+    & .st-icon--close {
+      top: 32px;
+    }
+  }
+  @include add(default) {
+    padding: 2%;
+    height: 98%;
+    width: 98%;
+  }
+  @include add(close) {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+    font-size: 28px;
+    &:active {
+      color: white;
+    }
+  }
+}

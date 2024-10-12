@@ -3,4 +3,4 @@ import {withInstall} from "../../utils/install";
 
 const StTabItem = withInstall(TabItem);
 
-export default TabItem;
+export default StTabItem;

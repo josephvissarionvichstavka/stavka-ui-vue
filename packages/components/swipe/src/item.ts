@@ -1,8 +1,7 @@
 import {defineComponent} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 
 const StSwipeItem = defineComponent({
-    name : createNamespace('swipe-item'),
+    name : 'st-swipe-item',
 })
 
 export default StSwipeItem;

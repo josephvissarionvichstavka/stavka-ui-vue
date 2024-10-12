@@ -15,7 +15,7 @@
       right: -20px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: var(--st-windows-background);
+      background-color: transparent;
     }
   }
   @include add(title) {

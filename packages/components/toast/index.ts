@@ -3,4 +3,4 @@ import {withInstall} from "../../utils/install";
 
 const StToast = withInstall(Toast);
 
-export default Toast;
+export default StToast;

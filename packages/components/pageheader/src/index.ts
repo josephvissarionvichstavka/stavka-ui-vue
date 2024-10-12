@@ -1,8 +1,7 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 
 const StPageHeader =  defineComponent({
-    name : createNamespace('page-header'),
+    name : 'st-page-header',
     props : {
         title : {
             type : String,

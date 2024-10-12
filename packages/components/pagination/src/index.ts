@@ -1,8 +1,7 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 
 const StPagination = defineComponent({
-    name : createNamespace('pagination') ,
+    name : 'st-pagination' ,
     props : {
         pageSize : { // 每页的条数
             type : Number,
@@ -37,7 +36,7 @@ const StPagination = defineComponent({
                 (this.$props.pageTotal / this.$props.pageSize + 1)
         },
         pages () : number[] {
-            let pages = []
+            const pages = []
             for (let i = 0; i < this.pageSizeW; i++) {
                 pages.push(i + 1)
             }

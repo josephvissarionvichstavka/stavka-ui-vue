@@ -1,8 +1,7 @@
 import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
 
 const StTag = defineComponent({
-    name : createNamespace('tag'),
+    name : 'st-tag',
     props : {
         type : {
             type: String,

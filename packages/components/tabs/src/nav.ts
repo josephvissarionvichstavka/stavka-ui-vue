@@ -1,13 +1,12 @@
-import {defineComponent , h} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
+import {defineComponent , h } from 'vue'
 const StTabNav = defineComponent({
-    name : createNamespace('tab-nav'),
+    name : 'st-tab-nav',
     props : {
         left : Number,
         width : Number,
         list : {
             type : Array,
-            default : []
+            default : () => []
         },
     },
     methods : {

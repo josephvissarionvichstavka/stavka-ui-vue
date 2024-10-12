@@ -1,20 +1,17 @@
-import {defineComponent , h} from 'vue';
-import {createNamespace} from "../../../utils/namespace";
+import {defineComponent, h} from 'vue';
 const StAside = defineComponent({
-    name : createNamespace('aside'),
+    name : 'st-aside',
     props : {
-        width : {
+        width:  {
             type : String,
-            default : '256px'
+            default: '256px'
         }
     },
-    setup (props : any) {
+    setup (props) {
         const classNames = [
             'st-aside'
         ];
-        const styles = {
-            width : props.width ? props.width : ''
-        }
+        const styles = `width:${props.width};`
         return {
             classNames,
             styles

@@ -1,11 +1,7 @@
-import {defineComponent , h ,VNodeTypes} from 'vue'
-import {createNamespace} from "../../../utils/namespace";
+import {defineComponent , h  , Component} from 'vue'
 import StTabNav from "./nav";
-import StTabItem from "./item";
-import nav from "./nav";
-import item from "./item";
 const StTabs = defineComponent({
-    name : createNamespace('tabs'),
+    name : 'st-tabs',
     methods : {
       handleClick (index : number) {
           if (!this.list[index].disabled) {
@@ -30,10 +26,9 @@ const StTabs = defineComponent({
     computed : {
         list () : Array<any> {
             const list: any[] = []
-            if (this.$slots && this.$slots.default) {
-                this.$slots.default().forEach(node => {
-                    // @ts-ignore
-                    if ('st-tab--item' === node.type.name) {
+            if (this.$slots !== null && this.$slots.default) {
+                this.$slots.default().map(node => {
+                    if ((node.type as Component).name  ==='st-tab-item') {
                         const item : any = {
                             title : node.props ? node.props.title : 'title' ,
                             content : node.children ? node.children : 'content',
@@ -43,11 +38,13 @@ const StTabs = defineComponent({
                     }
                 })
             }
-            list.push({
-                title : '+',
-                content : '',
-                disabled : this.disabled
-            })
+            if (this.$props.newItem) {
+                list.push({
+                    title : '+',
+                    content : '',
+                    disabled : this.disabled
+                })
+            }
             return list;
         },
         width(){
