@@ -16,12 +16,15 @@ import StEmpty from "../packages/components/empty";
 import StPageHeader from "../packages/components/pageheader";
 import StBackTop from "../packages/components/backtop";
 import StPagination from "../packages/components/pagination";
-import StTabItem from "../packages/components/tabs/src/item";
+import StTabItem from "../packages/components/tabitem";
 import StTabs from "../packages/components/tabs";
 import StSwitch from "../packages/components/switch";
 import StBadge from "../packages/components/badge";
-import StOverplay from "../packages/components/overplay/src";
+import StOverplay from "../packages/components/overplay";
 import StPopup from "../packages/components/popup";
+import StSwipe from "../packages/components/swipe";
+import StSwipeItem from "../packages/components/swipeitem";
+import StProgress from "../packages/components/pregress";
 const components = [
     StButton,
     StButtonGroup,
@@ -46,6 +49,9 @@ const components = [
     StSwitch,
     StBadge,
     StOverplay,
-    StPopup
+    StPopup,
+    StSwipe,
+    StSwipeItem,
+    StProgress
 ];
 export default components;

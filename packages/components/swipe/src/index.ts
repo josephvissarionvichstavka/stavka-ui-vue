@@ -21,40 +21,36 @@ const StSwipe = defineComponent({
         },
         interval : {
             type : Number,
-            default : 3000
+            default : 1000
         },
-        arrows : {
-            type : String,
-            default : 'default'
-        },
-    },
-    watch : {
-        currentIndex ( newValue) {
-
-            console.log(newValue)
-        }
     },
     computed : {
+        length () : any[] {
+            const length: any[] = []
+            if (this.$slots && this.$slots.default) {
+                this.$slots.default().map((item) => {
+                    if ((item.type as Component).name === 'st-swipe-item') {
+                        length.push(    item.children);
+                    }
+                })
+            }
+            return length;
+        },
       list () : any[] {
-          const ImageList : any[] = []
-          this.$slots.default().map((item , index) => {
-              if ((item.type as Component).name === 'st-swipe-item') {
-                 ImageList.push(     h('div' , {class : 'st-swipe--image' ,
-                     style : this.translate(index)} , item.children));
-              }
+            const list: any[] = []
+          this.length.forEach((item, index) => {
+              list.push(h('div', {class : ['st-swipe--image',(index - this.currentIndex === 0) && 'active', this.animal(index) && 'animal'], style : this.translate(index)} , item))
           })
-          return ImageList;
 
+          return list;
       },
         Nav () : any[] {
-            const selectItem = []
-            for (let i = 0;i < this.list.length;++i) {
-                const classList : string[] = [
-                    'st-swipe--select--item',
-                    (this.currentIndex === i) ? 'checked' : ''
-                ]
-                selectItem.push(h('div' , {class :  classList, onClick : () => this.gotoIndex(i)}))
-            }
+            const selectItem: any[] = []
+            this.length.forEach((item , index) => {
+                selectItem.push(h('div', {
+                    class : ['st-swipe--select--item',(index - this.currentIndex === 0) && 'checked'],
+                onclick : () => this.gotoIndex(index)}))
+            })
             return selectItem;
         },
         styles () : any {
@@ -63,16 +59,25 @@ const StSwipe = defineComponent({
               height: this.$props.height
           }
         },
+        translates () : number[] {
+            const int : any[] = []
+            this.length.forEach((item , index) => {
+                int.push((index - Math.floor(this.length.length / 2))  * 100)
+            })
+            return int
+        }
 
+    },
+    mounted() {
+        this.$props.autoplay && this.start();
     },
     methods : {
         gotoIndex (index : number) {
             this.stop();
             if (index === -1) index = this.list.length - 1
+            this.right = index >= this.currentIndex;
             this.currentIndex = index % this.list.length
-
         },
-
         handleMouseMove() {
             this.stop();
         },
@@ -83,24 +88,41 @@ const StSwipe = defineComponent({
             this.start();
         },
         stop () {
-            clearTimeout(this.timer);
+            clearInterval(this.timer);
             this.timer = 0;
         },
         start () {
             if (this.$props.autoplay) {
-                this.timer = setTimeout(() => {
-                    this.gotoIndex(this.currentIndex + 1 )
+                this.timer = setInterval(() => {
+                    if (this.right) {
+                        this.currentIndex = (this.currentIndex + 1) % this.length.length;
+                    }else {
+                        this.currentIndex = (this.currentIndex - 1 + this.length.length) % this.length.length;
+                    }
                 }, this.$props.interval)
             }
         },
-        translate (index : number) : string {
-            return `transform:translateX(${-(index - this.currentIndex) * 100}%); transition: all 2s;`
+        translate (index : number) : any {
+            const translate = (index - this.currentIndex + this.length.length + Math.floor(this.length.length / 2)) % this.length.length;
+
+            return `transform:translateX(${this.translates[translate]}%);`
+        },
+        animal (index : number) : boolean {
+            if (this.right) {
+                return ((index - this.currentIndex === 0)
+                    || ((index - this.currentIndex + this.length.length) % this.length.length - this.length.length === -1 ))
+
+            }else {
+                return ((index - this.currentIndex === 0)
+                    ||  ((index - this.currentIndex + this.length.length) % this.length.length === 1 )  )
+            }
         }
     },
     data () {
       return {
-          currentIndex : this.$props.initIndex && 0,
+          currentIndex : this.$props.initIndex ? this.$props.initIndex : 0,
           timer : 0,
+          right : false
       }
     },
     render() {
@@ -111,29 +133,13 @@ const StSwipe = defineComponent({
             onMouseout: this.handleMouseOut,
             style : this.styles
         }, [
-            h('div', { class: 'st-swipe--background' }),
             h('div', { class: 'st-swipe--main' }, [
-                h('div', { class: 'st-swipe--image-box' }, [
-                    ...this.list
-                ]),
-                h('div', { class: 'st-swipe--select' , ref : 'select' } , [
-                    ...this.Nav
-                ]),
-                h('div', {
-                    class: 'st-swipe--label st-swipe--left',
-                    onClick: () => this.gotoIndex(this.currentIndex - 1 )
-                }, [
-                    h('i', {class: 'st-icon--left'})
-                ]),
-                h('div', {
-                    class: 'st-swipe--label st-swipe--right',
-                    onClick: () => this.gotoIndex(this.currentIndex + 1)
-                }, [
-                    h('i', {class: 'st-icon--right'})
-                ])
+                h('div', { class: 'st-swipe--image-box' }, [...this.list]),
+                h('div', { class: 'st-swipe--select' , ref : 'select' } , [...this.Nav]),
+                h('div', {class: 'st-swipe--label st-swipe--left', onClick: () => this.gotoIndex(this.currentIndex - 1 )}, [h('i', {class: 'st-icon--left'})]),
+                h('div', {class: 'st-swipe--label st-swipe--right', onClick: () => this.gotoIndex(this.currentIndex + 1)}, [h('i', {class: 'st-icon--right'})])
             ])
         ])
-
     }
 })
 
